@@ -1,0 +1,35 @@
+﻿@model List<_2025_10_23.Models.MealType>
+@{
+    ViewData["Title"] = "Home Page";
+    List<Meal> meals = ViewBag.meals as List<Meal>;
+}
+
+<div class="text-center">
+    <div class="container w-75">
+        <div>
+            <!--請用下拉式方塊顯示類別名稱,選到值請設定類別編號-->
+            <select>
+                @foreach (MealType t in Model)
+                {
+                    <option value="@t.Id">@t.Name</option>
+                }
+            </select>
+        </div>
+
+
+        <div class="row">
+
+            <!--每項產品資料-->
+            @foreach (Meal m in meals)
+            {
+                <div class="col-3">
+                    <img class="w-75" />
+                    <p>@m.Name</p>
+                </div>
+            }
+
+
+        </div>
+    </div>
+
+</div>
